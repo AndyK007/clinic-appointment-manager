@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.action-bar {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.list-group {
+  separator-color: #e5e7eb;
+}
+
+.appointment-item {
+  padding: 16;
+  background-color: white;
+  border-bottom-width: 1;
+  border-color: #e5e7eb;
+}
