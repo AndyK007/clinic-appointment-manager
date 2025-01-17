@@ -1,0 +1,25 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="bg-gray-100">
+    <ActionBar title="Appointments" class="bg-blue-500 text-white">
+        <ActionItem tap="{{ onAddAppointment }}" ios.position="right" android.position="actionBar">
+            <Label text="+" class="text-2xl font-bold text-white p-2"/>
+        </ActionItem>
+    </ActionBar>
+
+    <StackLayout>
+        <ListView items="{{ appointments }}" class="list-group" separatorColor="#ddd">
+            <ListView.itemTemplate>
+                <StackLayout class="p-4 bg-white border-b border-gray-200">
+                    <Label text="{{ patientName }}" class="text-lg font-semibold text-gray-800"/>
+                    <FlexboxLayout class="justify-between items-center">
+                        <Label text="{{ date, 'MMM dd, yyyy' }}" class="text-gray-600"/>
+                        <Label text="{{ time }}" class="text-gray-600"/>
+                    </FlexboxLayout>
+                    <Label text="{{ reason }}" class="text-gray-500 mt-1"/>
+                    <Label text="{{ status }}" class="mt-2 p-1 text-center rounded-full"
+                           backgroundColor="{{ status === 'scheduled' ? '#4CAF50' : status === 'completed' ? '#2196F3' : '#F44336' }}"
+                           color="white"/>
+                </StackLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </StackLayout>
+</Page>

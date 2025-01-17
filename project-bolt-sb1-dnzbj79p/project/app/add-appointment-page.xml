@@ -1,0 +1,67 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="bg-gray-100">
+    <ActionBar title="New Appointment" class="bg-blue-500 text-white">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back"/>
+    </ActionBar>
+
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Label text="* Required fields" class="text-sm text-red-500 mb-4"/>
+            
+            <!-- Patient Name -->
+            <Label text="Patient Name *" class="font-semibold mb-1"/>
+            <TextField text="{{ patientName }}" 
+                      hint="Enter patient name"
+                      class="input p-3 bg-white rounded border-gray-300 mb-4"
+                      autocorrect="false"/>
+            <Label text="{{ errors.patientName }}" class="text-red-500 text-sm mb-2" visibility="{{ errors.patientName ? 'visible' : 'collapsed' }}"/>
+
+            <!-- Date of Birth -->
+            <Label text="Date of Birth *" class="font-semibold mb-1"/>
+            <DatePicker date="{{ dob }}" 
+                       class="mb-4"/>
+            <Label text="{{ errors.dob }}" class="text-red-500 text-sm mb-2" visibility="{{ errors.dob ? 'visible' : 'collapsed' }}"/>
+
+            <!-- Age (Auto-calculated) -->
+            <Label text="Age" class="font-semibold mb-1"/>
+            <Label text="{{ age }}" class="p-3 bg-gray-100 rounded mb-4"/>
+
+            <!-- Mobile Number -->
+            <Label text="Mobile Number *" class="font-semibold mb-1"/>
+            <TextField text="{{ mobileNumber }}" 
+                      hint="Enter mobile number"
+                      keyboardType="phone"
+                      class="input p-3 bg-white rounded border-gray-300 mb-4"
+                      maxLength="15"/>
+            <Label text="{{ errors.mobileNumber }}" class="text-red-500 text-sm mb-2" visibility="{{ errors.mobileNumber ? 'visible' : 'collapsed' }}"/>
+
+            <!-- Reason for Visit -->
+            <Label text="Reason for Visit" class="font-semibold mb-1"/>
+            <TextView text="{{ reason }}" 
+                     hint="Enter reason for visit"
+                     class="input p-3 bg-white rounded border-gray-300 mb-4"
+                     height="100"/>
+
+            <!-- Appointment Date -->
+            <Label text="Appointment Date" class="font-semibold mb-1"/>
+            <DatePicker date="{{ appointmentDate }}" 
+                       minDate="{{ minDate }}"
+                       class="mb-4"/>
+
+            <!-- Appointment Time -->
+            <Label text="Appointment Time" class="font-semibold mb-1"/>
+            <TimePicker time="{{ appointmentTime }}" 
+                       class="mb-4"/>
+
+            <!-- Referred By -->
+            <Label text="Referred By" class="font-semibold mb-1"/>
+            <TextField text="{{ referredBy }}" 
+                      hint="Enter referral source"
+                      class="input p-3 bg-white rounded border-gray-300 mb-4"/>
+
+            <!-- Submit Button -->
+            <Button text="Schedule Appointment" 
+                    tap="{{ onSubmit }}"
+                    class="bg-blue-500 text-white p-3 rounded-lg font-semibold"/>
+        </StackLayout>
+    </ScrollView>
+</Page>
